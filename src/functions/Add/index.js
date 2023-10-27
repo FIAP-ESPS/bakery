@@ -1,8 +1,12 @@
-const prompt = require('prompt-sync')();
+import promptSync from 'prompt-sync';
+
+const prompt = promptSync();
 
 function productAdder(availableProducts, Product) {
   const addProductName = prompt('\nInsira o nome do produto que deseja inserir: ');
-  const addProductPrice = Number(prompt('\nInsira o preço do produto que deseja inserir: '));
+  const addProductPrice = Number(
+    prompt('\nInsira o preço por unidade do produto que deseja inserir: '),
+  );
   const addProductQuantity = Number(
     prompt('\nInsira quantas unidades do produto deseja inserir: '),
   );
@@ -11,4 +15,5 @@ function productAdder(availableProducts, Product) {
 
   availableProducts.push(addProduct);
 }
-module.exports = { productAdder };
+
+export default productAdder;

@@ -3,4 +3,5 @@ function displayReports(reportOptions) {
     console.log(`\n${reportOptions.indexOf(report)} - ${report}`);
   }
 }
-module.exports = { displayReports };
+
+export default displayReports;

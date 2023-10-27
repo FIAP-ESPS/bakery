@@ -7,4 +7,5 @@ function displayProducts(availableProducts) {
     );
   }
 }
-module.exports = { displayProducts };
+
+export default displayProducts;

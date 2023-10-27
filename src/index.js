@@ -1,23 +1,22 @@
-
-const { start } = require('./functions/start');
-const { chooseOption } = require('./choices/chooseOption');
-const { buyProducts } = require('./functions/buyProducts');
-const { salesReport } = require('./functions/salesReport');
-const { productAdder } = require('./functions/productAdder');
-const { productSubtractor } = require('./functions/productSubtractor');
+/* eslint-disable import/extensions */
+import start from './functions/start.js';
+import chooseOption from './choices/chooseOption.js';
+import buyProducts from './functions/Buy/index.js';
+import salesReport from './functions/Report/index.js';
+import productAdder from './functions/Add/index.js';
+import productSubtractor from './functions/Remove/index.js';
+import productEditor from './functions/Edit/index.js';
 
 const availableProducts = [];
-let chosenOption;
-let chosenProduct;
-let chosenQuantity;
-let chosenReport;
 const unitiesSold = [];
 const itemsSold = [];
 const valueSold = [];
 
 class Product {
   name;
+
   price;
+
   quantity;
 
   constructor(productName, productPrice, productQuantity) {
@@ -26,39 +25,35 @@ class Product {
     this.quantity = productQuantity;
   }
 }
+
 const Pão = new Product('Pão', 1, 300);
 const Bolo = new Product('Bolo', 10, 45);
 const Queijo = new Product('Queijo', 7, 90);
 
 availableProducts.push(Pão, Bolo, Queijo);
 
-loop: while (1) {
+loop: while (true) {
   start();
-  switch (chooseOption(chosenOption)) {
+  switch (chooseOption()) {
     case '0':
-      buyProducts(
-        availableProducts,
-        chosenProduct,
-        chosenQuantity,
-        unitiesSold,
-        itemsSold,
-        valueSold,
-      );
+      buyProducts(availableProducts, unitiesSold, itemsSold, valueSold);
       continue;
     case '1':
-      productEditor();
-      continue;
-    case '2':
       productSubtractor(availableProducts);
       continue;
-    case '3':
+    case '2':
       productAdder(availableProducts, Product);
       continue;
+    case '3':
+      productEditor(availableProducts);
+      continue;
     case '4':
-      salesReport(chosenReport, unitiesSold, itemsSold, valueSold);
+      salesReport(unitiesSold, itemsSold, valueSold);
       continue;
     case '5':
       console.log('\nObrigado pela preferência e volte sempre!');
       break loop;
+    default:
+      continue;
   }
 }

@@ -1,7 +1,10 @@
-const prompt = require('prompt-sync')();
+import promptSync from 'prompt-sync';
+
+const prompt = promptSync();
 
 function chooseProduct(availableProducts, chosenProduct, chosenQuantity, unitiesSold, itemsSold) {
   chosenProduct = Number(prompt('\nDigite o número correspondente à opção desejada: '));
+
   chosenQuantity = Number(
     prompt(
       `\nQuantas unidades de ${availableProducts[
@@ -23,4 +26,4 @@ function chooseProduct(availableProducts, chosenProduct, chosenQuantity, unities
   };
 }
 
-module.exports = { chooseProduct };
+export default chooseProduct;

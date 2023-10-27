@@ -11,6 +11,11 @@
     "rules": {
         "no-console": "off",
         "no-restricted-syntax": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "no-labels": "off",
+        "no-constant-condition": "off",
+        "no-continue": "off",
+        "object-curly-newline":"off",
+        "import-extensions": "off"
     }
 }

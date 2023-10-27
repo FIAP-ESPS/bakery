@@ -3,4 +3,5 @@ function displayOptions(options) {
     console.log(`\n${option}`);
   }
 }
-module.exports = { displayOptions };
+
+export default displayOptions;

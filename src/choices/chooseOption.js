@@ -1,7 +1,11 @@
-const prompt = require('prompt-sync')();
+import promptSync from 'prompt-sync';
+
+const prompt = promptSync();
 
 function chooseOption(chosenOption) {
   chosenOption = prompt('\nDigite o número correspondente à opção desejada: ');
+
   return chosenOption;
 }
-module.exports = { chooseOption };
+
+export default chooseOption;
